@@ -1,0 +1,57 @@
+﻿@model Nop.Plugin.Widgets.BsProductVideo.Models.PublicInfoModel
+@{
+    Layout = "";
+    Html.AppendCssFileParts("~/Plugins/Widgets.BsProductVideo/Content/styles.css");
+
+}
+@using Nop.Web.Framework.UI
+   @*@if (Model.EmbedVideoRecordModels.Count > 0)
+   {
+       <span>Video</span>
+   }*@
+@foreach (var embedVideo in Model.EmbedVideoRecordModels)
+{
+    <div class="video-holder">
+        <a class="video-thumb thumb-item">
+            <img data-embedvideoid="@embedVideo.Id" src="@embedVideo.VideoThumbUrl" alt="VideoThumpLink" data-embedvideohtmlcode="@embedVideo.EmbedVideoHtmlCode" />
+        </a>
+    </div>
+  
+}
+   @if (Model.EmbedVideoRecordModels.Count>0)
+   {
+       <text>
+           <script asp-location="Footer" >
+               if ($(".picture-thumbs").length > 0) {
+                   $(".picture-thumbs").append("<div class='video-title'>Audio/Videos Demos</div><br/>");
+                   $(".picture-thumbs").append($(".video-holder > a"));
+               } else {
+                   //$(".picture").insertAfter("<div class='picture-thumbs'></div>")
+                   $("<div class='picture-thumbs'></div>").insertAfter(".picture");
+                   $(".picture-thumbs").append("<div class='video-title'>Audio/Videos Demos</div><br/>");
+                   $(".picture-thumbs").append($(".video-holder > a"));
+               }
+
+
+               $('.video-thumb').click(function() {
+                   var testsrc = "";
+                   var test = "";
+                   testsrc = $(this).find("img").data('embedvideohtmlcode');
+                   test = $(testsrc).attr('src');
+                   test = test + '?autoplay=1&rel=0';
+                   $.magnificPopup.open({
+                       items: {
+                           src: '<iframe style="text-align: center;" width="854" height="480" src=' + test + ' frameborder="0" allowfullscreen></iframe>',
+                           type: 'inline',
+
+                       },
+                       closeBtnInside: true,
+                       closeOnContentClick: false,
+                       closeOnBgClick: true
+                   });
+               });
+
+
+           </script>
+</text>
+   }

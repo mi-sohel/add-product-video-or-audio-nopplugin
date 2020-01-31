@@ -1,0 +1,12 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "Add video/Audio with Product",
+  "SystemName": "Sohel.ProductVideo",
+  "Version": "1.83",
+  "SupportedVersions": [ "4.10" ],
+  "Author": "Md. Minul Islam Sohel, nop MVP, Skype&Email: misohel@hotmail.com",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.BsProductVideo.dll",
+  "Description": "Showing Product Video in Product Details Page with product images. And increase  sale !!!"
+}
+
